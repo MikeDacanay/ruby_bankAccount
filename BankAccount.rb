@@ -2,7 +2,7 @@ class BankAccount
 	@@accountNumber = 0
 	@@checking = 0
 	@@saving = 0 
-
+	@@interest_rate = 0.01 
 ############## initialize
 	def initialize
 		@@accountNumber= @@accountNumber + 1
@@ -58,6 +58,14 @@ class BankAccount
 		self
 	end
 
+	def bank_account
+		display_account
+		display_bank
+		display_checking
+		display_saving
+		puts @@interest_rate
+	end
+
 	private
 		def generate_num (num = rand(1..10000000))
 			puts num 
@@ -67,4 +75,4 @@ class BankAccount
 account1 = BankAccount.new
 account2 = BankAccount.new
 
-account2.display_numberofacc
+account2.deposit(200,303).bank_account
