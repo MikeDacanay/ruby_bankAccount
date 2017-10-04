@@ -1,11 +1,13 @@
 class BankAccount
-
+	@@accountNumber = 0
 	@@checking = 0
 	@@saving = 0 
-	def display_account
-		generate_num
-		self
+
+############## initialize
+	def initialize
+		@@accountNumber= @@accountNumber + 1
 	end
+##############DEPOSIT&& WITHDRAW
 
 	def deposit (num1 = 0, num2 = 0)
 		@@checking += num1
@@ -28,7 +30,12 @@ class BankAccount
 		else
 			puts "insufficient funds in saving"
 		end
+	end
 
+#################DISPLAY
+	def display_account
+		generate_num
+		self
 	end
 
 	def display_checking
@@ -41,12 +48,23 @@ class BankAccount
 		self
 	end
 
+	def display_bank
+		puts @@saving+@@checking
+		self
+	end
+
+	def display_numberofacc
+		puts @@accountNumber
+		self
+	end
+
 	private
 		def generate_num (num = rand(1..10000000))
 			puts num 
 		end
-end
+	end
 
 account1 = BankAccount.new
+account2 = BankAccount.new
 
-account1.deposit(0,200).withdraw(0,1000).display_saving
+account2.display_numberofacc
